@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  geminiApiUrl: 'http://localhost:8080/api/chat',
+  geminiApiUrl: 'https://chat-app-nu-six.vercel.app/api/chat',
 };
