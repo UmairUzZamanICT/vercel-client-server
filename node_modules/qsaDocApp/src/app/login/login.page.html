@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Quality User Manual (AI) Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<form class="frm" (ngSubmit)="login()" [formGroup]="credentials">
+		<div class="input-group">
+			<ion-item>
+				<ion-input type="text" placeholder="User ID" ngDefaultControl formControlName="emp_name"></ion-input>
+			</ion-item>
+			<div *ngIf="(emp_name.dirty || emp_name.touched) && emp_name.errors" class="errors">
+				<span *ngIf="emp_name.errors?.required">User ID is required</span>
+        <!-- <span *ngIf="emp_name.errors?.email">Not a valid email</span> -->
+         <span *ngIf="emp_name.errors?.minlength">User ID needs to be 3 characters</span>
+			</div>
+			<ion-item>
+				<ion-input type="password" placeholder="Password" ngDefaultControl formControlName="password"></ion-input>
+			</ion-item>
+			<div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+				<span *ngIf="password.errors?.required">Password is required</span>
+				<span *ngIf="password.errors?.minlength">Password needs to be 3 characters</span>
+			</div>
+      <ion-button type="submit" expand="block" color="warning" [disabled]="!credentials.valid">Log in</ion-button>
+    </div>
+	</form>
+</ion-content>

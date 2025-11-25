@@ -1,0 +1,13 @@
+{
+    "name": "vercel-client-server",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+        "build": "echo 'Vercel will handle builds via vercel.json'"
+    },
+    "workspaces": [
+        "client",
+        "server"
+    ]
+}

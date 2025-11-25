@@ -1,0 +1,44 @@
+ion-toolbar {
+  ion-title{
+    text-align: center;
+  }
+}
+ion-content {
+	--padding-top: 0px;
+	--padding-start: 0px;
+	--padding-end: 0px;
+	--background: url('../../assets/qa.jpg') 0 0/100% 100% no-repeat;
+
+}
+ion-content img {
+  height: auto !important;
+  width: auto !important;
+  margin: auto;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.frm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
+  margin-left: 20%;
+}
+
+.input-group {
+	background: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 5% 0;
+}
+.errors {
+	font-size: small;
+	color: #fff;
+	background: var(--ion-color-danger);
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}

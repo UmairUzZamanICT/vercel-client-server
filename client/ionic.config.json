@@ -1,0 +1,7 @@
+{
+  "name": "qsaDocApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

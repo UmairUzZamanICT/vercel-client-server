@@ -1,0 +1,103 @@
+/* 1. Ensure the parent container uses Flexbox and takes full available height */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Fills the height of the ion-content area */
+}
+
+/* 2. The messages wrapper manages scrolling and available space */
+.messages-wrapper {
+  max-height: 100%;
+  overflow-y: auto;
+  /* CRITICAL: Enables vertical scrolling */
+  flex-grow: 1;
+  /* CRITICAL: Allows it to take up all available space */
+  padding: 10px 10px 10px 10px;
+  /* Add internal padding */
+}
+
+/* 3. Message Card Styling */
+.message {
+  margin-bottom: 8px;
+  /* Adds space between messages */
+  padding: 0;
+  border-radius: 10px;
+  max-width: 85%;
+  /* Sets a maximum width for the bubble */
+  width: fit-content;
+}
+
+/* 4. Content within the Card */
+ion-card-content {
+  padding: 10px 15px !important;
+  color: black;
+}
+
+/* 5. User Message (Align Left/Start) */
+.user-message {
+  align-self: flex-start;
+  --background: rgba(var(--ion-color-success-rgb), 0.25);
+  /* Light Green */
+  margin-right: auto;
+}
+
+/* 6. Bot Message (Align Right/End) */
+.bot-message {
+  align-self: flex-end;
+  --background: rgba(var(--ion-color-danger-rgb), 0.25);
+  /* Light Red/Pink */
+  margin-left: auto;
+}
+
+/* 7. Adjustments for the new ion-footer structure */
+ion-footer ion-toolbar {
+  --background: #f4f5f8;
+}
+
+ion-footer ion-item {
+  /* Remove default item padding and border for a clean footer */
+  --padding-start: 5px;
+  --padding-end: 5px;
+  --inner-padding-end: 0;
+  --border-color: transparent;
+  align-items: flex-end;
+  /* Ensures button aligns to bottom of textarea */
+}
+
+ion-textarea {
+  /* Reset default Ionic background/border to be seamless inside ion-item */
+  background: none;
+  border: none;
+}
+
+ion-footer ion-buttons {
+  /* Align button to look good next to the textarea */
+  margin-inline-end: 8px;
+  margin-bottom: 4px;
+}
+
+
+.card-content-md h3, .card-content-md h4, .card-content-md h5, .card-content-md h6 {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* 5. User Message (Align Left/Start) */
+.user-message {
+  align-self: flex-start;
+  --background: rgba(var(--ion-color-success-rgb), 0.99);
+  /* Light Green */
+  margin-right: auto;
+}
+
+/* 6. Bot Message (Align Right/End) */
+.bot-message {
+  align-self: flex-end;
+  --background: rgba(var(--ion-color-danger-rgb), 0.99);
+  /* Light Red/Pink */
+  margin-left: auto;
+}
+
+}
