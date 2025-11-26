@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonButton, IonInput } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { Auth } from '../services/auth';
+import { Toster } from '../services/toster';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginPage implements OnInit {
 
   private readonly authService = inject(Auth);
   private readonly router = inject(Router);
+  private tosterService = inject(Toster);
 
   credentials: FormGroup|any;
 
@@ -39,11 +41,22 @@ export class LoginPage implements OnInit {
 
   login() {
     try {
-      const name = this.emp_name.value;
-      // console.log('Logging in with username:', name);
-      if (name) {
-        this.authService.login(name);
-        this.router.navigate(['/chat']);
+      let name = this.emp_name.value;
+      let password = this.password.value;
+      if(name && password){
+        
+        name = name.toLowerCase().trim();
+        password = password.toLowerCase().trim();
+        if(name.length < 3 || password.length < 3){
+          this.tosterService.presentToast('Invalid credentials');
+          return;
+        }else if(name === 'demo' && password === 'demo'){
+          this.authService.login(name);
+          this.router.navigate(['/chat']);
+        }else{
+          this.tosterService.presentToast('Invalid credentials');
+          return;
+        }
       }
     } catch (error) {
       console.error('Login error:', error);
