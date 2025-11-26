@@ -48,13 +48,13 @@ export class LoginPage implements OnInit {
         name = name.toLowerCase().trim();
         password = password.toLowerCase().trim();
         if(name.length < 3 || password.length < 3){
-          this.tosterService.presentToast('Invalid credentials');
+          this.tosterService.presentToast('Invalid credentials', 3000, 'toaster-error');
           return;
         }else if(name === 'demo' && password === 'demo'){
           this.authService.login(name);
           this.router.navigate(['/chat']);
         }else{
-          this.tosterService.presentToast('Invalid credentials');
+          this.tosterService.presentToast('Invalid credentials', 3000, 'toaster-error');
           return;
         }
       }
