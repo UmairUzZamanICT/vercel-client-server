@@ -37,7 +37,7 @@ ion-card-content {
 /* 5. User Message (Align Left/Start) */
 .user-message {
   align-self: flex-start;
-  --background: rgba(var(--ion-color-success-rgb), 0.25);
+  --background: rgba(var(--ion-color-danger-rgb), 0.25);
   /* Light Green */
   margin-right: auto;
 }
@@ -45,7 +45,7 @@ ion-card-content {
 /* 6. Bot Message (Align Right/End) */
 .bot-message {
   align-self: flex-end;
-  --background: rgba(var(--ion-color-danger-rgb), 0.25);
+  --background: rgba(var(--ion-color-success-rgb), 0.25);
   /* Light Red/Pink */
   margin-left: auto;
 }
